@@ -297,7 +297,7 @@ responsemap[browseRestaurantTypes] = {
       "elements": [
         {
           "title": "Full Service",
-          "image_url": "https://pos.toasttab.com/hs-fs/hubfs/experts.png",
+          "image_url": "https://pos.toasttab.com/hubfs/terminal-people-in-back-fsr-puritan_v2.jpg",
           "default_action": {
             "type": "web_url",
             "url": "https://pos.toasttab.com/restaurant-pos/full-service?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
@@ -307,7 +307,7 @@ responsemap[browseRestaurantTypes] = {
         },
         {
           "title": "Quick Service",
-          "image_url": "https://pos.toasttab.com/hs-fs/hubfs/Blog_Post_Images/United_States_Capitol_-_west_front-551837-edited.jpg",
+          "image_url": "https://pos.toasttab.com/hubfs/Hardware/Customer-Hardware-Photos/patlafrieda-quickserve.jpg",
           "default_action": {
             "type": "web_url",
             "url": "https://pos.toasttab.com/restaurant-pos/quick-service?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
@@ -317,7 +317,7 @@ responsemap[browseRestaurantTypes] = {
         },
         {
           "title": "Bar / Nightclub",
-          "image_url": "https://pos.toasttab.com/hs-fs/hubfs/E_S_T_._1_9_6_1.png",
+          "image_url": "https://pos.toasttab.com/hubfs/behind-bar-pos.jpg?t=1510246060148",
           "default_action": {
             "type": "web_url",
             "url": "https://pos.toasttab.com/restaurant-pos/bar?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
@@ -338,7 +338,7 @@ responsemap[browseRestaurantTypes + "2"] = {
       "elements": [
         {
           "title": "Pizzeria",
-          "image_url": "https://pos.toasttab.com/hs-fs/hubfs/restaurant.png",
+          "image_url": "https://pos.toasttab.com/hubfs/oath-food-shot.jpg?t=1510246060148",
           "default_action": {
             "type": "web_url",
             "url": "https://pos.toasttab.com/restaurant-pos/pizza?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
@@ -348,7 +348,7 @@ responsemap[browseRestaurantTypes + "2"] = {
         },
         {
           "title": "Cafe",
-          "image_url": "https://pos.toasttab.com/hs-fs/hubfs/experts.png",
+          "image_url": "https://pos.toasttab.com/hubfs/images/ProteinBar.jpg?t=1510246060148",
           "default_action": {
             "type": "web_url",
             "url": "https://pos.toasttab.com/restaurant-pos/cafe?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
@@ -358,7 +358,7 @@ responsemap[browseRestaurantTypes + "2"] = {
         },
         {
           "title": "Other",
-          "image_url": "https://pos.toasttab.com/hs-fs/hubfs/Blog_Post_Images/United_States_Capitol_-_west_front-551837-edited.jpg",
+          "image_url": "https://pos.toasttab.com/hubfs/images/toast-circle_red.png?t=1510246060148",
           "default_action": {
             "type": "web_url",
             "url": "https://pos.toasttab.com/restaurant-pos?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
