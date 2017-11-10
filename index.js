@@ -15,13 +15,32 @@ const
   request = require('request'),
   express = require('express'),
   body_parser = require('body-parser'),
+  responsemap = require('./responsemap'),
+  recognizedWords = [responsemap.introduction, responsemap.whatCanIHelpYouWith, responsemap.isYourRestaurantInTheUSA,
+                    responsemap.whatPOSDoYouUse, responsemap.commonRestaurantTypes, responsemap.learnAboutToast, responsemap.currentToastCustomer,
+                    responsemap.locatedInTheUSAYes, responsemap.locatedInTheUSANo, responsemap.everything,
+                    responsemap.management, responsemap.metrics, responsemap.technology,
+                    responsemap.marketing, responsemap.menu, responsemap.staffing,
+                    responsemap.industryNews, responsemap.getAFreeQuote, responsemap.notInTheUSA,
+                    responsemap.fifteenSixteen, responsemap.oneTwoSevenTwelveThirteenFourteen, responsemap.fourEightNineEleven,
+                    responsemap.threeFiveSixTen, responsemap.compareWithYourPOS, responsemap.seeToastInAction, responsemap.browseRestaurantTypes,
+                    responsemap.explorePricing, responsemap.shareFeedback, responsemap.talkToCustomerSupport,
+                    responsemap.referAFriendToToast, responsemap.learnMoreAboutUpgrades, responsemap.learnAboutNewFeatures,
+                    responsemap.purchaseMoreHardWare, responsemap.addAdditionalSoftwareModules, responsemap.integrateWithAnotherProduct,
+                    responsemap.readArticles, responsemap.other, responsemap.learnAboutToastFeatures,
+                    responsemap.one, responsemap.two, responsemap.three, responsemap.four,
+                    responsemap.five, responsemap.six, responsemap.seven, responsemap.eight,
+                    responsemap.nine, responsemap.ten, responsemap.eleven, responsemap.twelve,
+                    responsemap.thirteen, responsemap.fourteen, responsemap.fifteen, responsemap.sixteen],
   app = express().use(body_parser.json()); // creates express http server
+  
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 // Accepts POST requests at /webhook endpoint
-app.post('/webhook', (req, res) => {  
+app.post('/webhook', (req, res) => { 
+  console.log("GOT A POST")
 
   // Parse the request body from the POST
   let body = req.body;
@@ -35,7 +54,6 @@ app.post('/webhook', (req, res) => {
       // Get the webhook event. entry.messaging is an array, but 
       // will only ever contain one event, so we get index 0
       let webhook_event = entry.messaging[0];
-      console.log(webhook_event);
       
       // Get the sender PSID
       let sender_psid = webhook_event.sender.id;
@@ -62,7 +80,6 @@ app.post('/webhook', (req, res) => {
 
 // Accepts GET requests at the /webhook endpoint
 app.get('/webhook', (req, res) => {
-  
   /** UPDATE YOUR VERIFY TOKEN **/
   const VERIFY_TOKEN = process.env.PAGE_ACCESS_TOKEN;
   
@@ -91,31 +108,29 @@ app.get('/webhook', (req, res) => {
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
   let response;
-  console.log("this was called")
+  var message;
+  //console.log(responsemap.responsemap[responsemap.purchaseMoreHardWare])
   // Checks if the message contains text
   if (received_message.text) {
+    if(recognizedWords.indexOf(received_message.text) === -1) {
+      received_message.text = "undefined";
+    }
     // Get the URL of the message attachment
     //let attachment_url = received_message.attachments[0].payload.url;
-    response = {
-        "text":"that is a test",
-         "quick_replies":[
-        {
-          "content_type":"text",
-          "title":"BUTTON MF",
-          "payload":"BUTTON MF"
-        },
-        {
-          "content_type":"text",
-          "title":"Yall mf need jesus and shit",
-          "payload":"BUTTON2 MF"
-        }
-           
-      ]
-      }
-  } 
+    
+    //console.log("herererererere", responsemap.responsemap[received_message.text])
+    message = received_message.text;
+    response = responsemap.responsemap[received_message.text];
+  }
   
   // Send the response message
-  callSendAPI(sender_psid, response);    
+  callSendAPI(sender_psid, response);  
+  if(message == responsemap.browseRestaurantTypes) {
+    var response2 = responsemap.responsemap[received_message.text + "2"];
+    setTimeout(function() {
+      callSendAPI(sender_psid, response2);  
+    }, 100);
+  }
 }
 
 // Handles messaging_postbacks events
@@ -124,7 +139,6 @@ function handlePostback(sender_psid, received_postback) {
   
   // Get the payload for the postback
   let payload = received_postback.payload;
-  console.log(payload, "this is the payload")
 
   // Set the response based on the postback payload
   if (payload === 'Yes!') {
@@ -135,6 +149,8 @@ function handlePostback(sender_psid, received_postback) {
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
 }
+
+
 
 // Sends response messages via the Send API
 function callSendAPI(sender_psid, response) {
