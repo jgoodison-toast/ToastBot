@@ -1,15 +1,20 @@
 //Questions
-const introduction =  "Hi {First Name}, let’s get started. I can answer any questions you have about Toast and send you top stores from the Toast Restaurant Management Blog every day. Tap the button below!";
+const introduction =  "Hi {First Name}, let’s get started. I can answer any questions you have about Toast and send you top stores from the Toast Restaurant Management Blog every day. Tap the button below!\n\nIf you get lost at any point just type start to come back here.";
 const whatCanIHelpYouWith = "Great! What can I help you with?";
 const isYourRestaurantInTheUSA = "Is your restaurant in the USA?";
 const whatPOSDoYouUse = "What POS do you currently use in your restaurant?\n 1 - Micros\n2 - NCR - Aloha\n3 - NCR - Silver\n4 - Square\n5 - Clover\n6 - Harbortouch\n7 - Positouch\n8 - TouchBistro\n9 - Revel\n10 - Brink\n11 - Breadcrumb/Upserve\n12 - Aldelo\n13 - Digital Dining\n14 - Dinerware\n15 - None - Pencil & Paper\n16 - None - Cash Register\n17 - None - New Restaurant"
 const commonRestaurantTypes = "YUM. Here are the most common restaurant types we work with.  🍽️"
+const learnAboutToastReply = "What features interest you?";
 
 //REPLIES
 const learnAboutToast= "Learn about Toast";
 const currentToastCustomer="Current customer";
 const locatedInTheUSAYes="Yes";
 const locatedInTheUSANo="No";
+const featureReply = "What would you like to do next?";
+const reportingInAction = "Reporting in action";
+const customerLoyaltyInAction = "Loyalty in action";
+const inventoryInAction = "Inventory in action";
 
 const everything= "Everything";
 const management="Management";
@@ -26,9 +31,16 @@ const fifteenSixteen = "Good to know. Check out our comparison page here to see 
 const oneTwoSevenTwelveThirteenFourteen = "Good to know. Check out our comparison page here to see how Toast stacks up against legacy competitors."
 const fourEightNineEleven = "Good to know. Check out our comparison page here to see how Toast stacks up against iPad POS systems.";
 const threeFiveSixTen = "Good to know. Check out our comparison page here to see how Toast stacks up against cloud competitors.";
+
+const reporting = "Reporting";
+const inventory = "Inventory";
+const giftCards = "Gift Cards";
+const customerLoyalty = "Customer Loyalty";
+const onlineOrdering = "Online Ordering";
+const posOrdering = "POS Ordering";
 //BUTTONS
 const compareWithYourPOS= "Compare to your POS";
-const browseRestaurantTypes = "Browse Restaurant Types"
+const browseRestaurantTypes = "Restaurant Types"
 const seeToastInAction="See Toast in action";
 const explorePricing="Explore pricing";
 const shareFeedback="Share feedback";
@@ -36,7 +48,7 @@ const talkToCustomerSupport= "Talk to support";
 const referAFriendToToast= "Refer a friend";
 const learnMoreAboutUpgrades= "Learn about upgrades";
 const learnAboutNewFeatures= "New features";
-const purchaseMoreHardWare= "Purchase more hardware";
+const purchaseMoreHardWare= "Purchase hardware";
 const integrateWithAnotherProduct= "Integration";
 const readArticles= "Read articles";
 const other= "other";
@@ -57,6 +69,7 @@ const thirteen = "13";
 const fourteen = "14";
 const fifteen = "15";
 const sixteen = "16";
+const toastFeatures = "Toast features";
 var responsemap = {};
 
 // Left
@@ -65,24 +78,214 @@ responsemap["undefined"] = {
   "quick_replies":[
             {
               "content_type":"text",
-              "title":explorePricing,
-              "payload":explorePricing
+              "title":toastFeatures,
+              "payload":toastFeatures
             },
             {
               "content_type":"text",
-              "title":seeToastInAction,
-              "payload":seeToastInAction
+              "title":explorePricing,
+              "payload":explorePricing
             },
             {
               "content_type":"text",
               "title":compareWithYourPOS,
               "payload":compareWithYourPOS
             },
-                {
+            {
+              "content_type":"text",
+              "title":currentToastCustomer,
+              "payload":currentToastCustomer
+            },
+            {
+              "content_type":"text",
+              "title":readArticles,
+              "payload":readArticles
+            },
+            {
               "content_type":"text",
               "title":browseRestaurantTypes,
               "payload":browseRestaurantTypes
             }
+            
+        ]
+}
+responsemap[reporting] = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type":"button",
+      "text":featureReply,
+      "buttons":[
+        {
+          "type":"postback",
+          "payload":explorePricing,
+          "title":reportingInAction 
+        },
+        {
+          "type":"web_url",
+          "url":"https://pos.toasttab.com/pos-system/analytics?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
+          "title":"Capabilities",
+        }
+      ]  
+    }
+  }
+}
+responsemap[giftCards] = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type":"button",
+      "text":featureReply,
+      "buttons":[
+        {
+          "type":"postback",
+          "payload":explorePricing,
+          "title":"Gift cards in action" 
+        },
+        {
+          "type":"web_url",
+          "url":"https://pos.toasttab.com/pos-system/gift-card?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
+          "title":"Capabilities",
+        }
+      ]  
+    }
+  }
+}
+responsemap[customerLoyalty] = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type":"button",
+      "text":featureReply,
+      "buttons":[
+        {
+          "type":"postback",
+          "payload":explorePricing,
+          "title":customerLoyaltyInAction 
+        },
+        {
+          "type":"web_url",
+          "url":"https://pos.toasttab.com/pos-system/loyalty?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
+          "title":"Capabilities",
+        }
+      ]  
+    }
+  }
+}
+
+responsemap[inventory] = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type":"button",
+      "text":featureReply,
+      "buttons":[
+        {
+          "type":"postback",
+          "payload":explorePricing,
+          "title":inventoryInAction 
+        },
+        {
+          "type":"web_url",
+          "url":"https://pos.toasttab.com/pos-system/inventory-management?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
+          "title":"Capabilities",
+        }
+      ]  
+    }
+  }
+}
+responsemap[onlineOrdering] = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type":"button",
+      "text":featureReply,
+      "buttons":[
+        {
+          "type":"postback",
+          "payload":explorePricing,
+          "title":"Online in action" 
+        },
+        {
+          "type":"web_url",
+          "url":"https://pos.toasttab.com/pos-system/online-ordering?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
+          "title":"Capabilities",
+        }
+      ]  
+    }
+  }
+}
+responsemap[posOrdering] = {
+    "attachment": {
+    "type": "template",
+    "payload": {
+      "template_type":"button",
+      "text":featureReply,
+      "buttons":[
+        {
+          "type":"postback",
+          "payload":explorePricing,
+          "title":"POS in action" 
+        },
+        {
+          "type":"web_url",
+          "url":"https://pos.toasttab.com/restaurant-pos/ordering?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social",
+          "title":"Capabilities",
+        }
+      ]  
+    }
+  }
+}
+responsemap[toastFeatures] = {
+  "text":learnAboutToastReply,
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":reporting,
+              "payload":reporting
+            },
+            {
+              "content_type":"text",
+              "title":inventory,
+              "payload":inventory
+            },
+            {
+              "content_type":"text",
+              "title":giftCards,
+              "payload":giftCards
+            },
+            {
+              "content_type":"text",
+              "title":customerLoyalty,
+              "payload":customerLoyalty
+            },
+            {
+              "content_type":"text",
+              "title":onlineOrdering,
+              "payload":onlineOrdering
+            },
+            {
+              "content_type":"text",
+              "title":posOrdering,
+              "payload":posOrdering
+            }
+            
+        ]
+}
+responsemap[explorePricing] = {
+  "text":"Is your restaurant located in the U.S.?",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":locatedInTheUSAYes,
+              "payload":locatedInTheUSAYes
+            },
+            {
+              "content_type":"text",
+              "title":locatedInTheUSANo,
+              "payload":locatedInTheUSANo
+            },
+
         ]
 }
 responsemap[browseRestaurantTypes] = {
@@ -167,40 +370,6 @@ responsemap[browseRestaurantTypes + "2"] = {
     }
   }
 }
-/*responsemap[browseRestaurantTypes] = {
-  "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Full service",
-              "payload":"https://pos.toasttab.com/restaurant-pos/full-service?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social"
-            },
-            {
-              "content_type":"text",
-              "title":"Quick Service",
-              "payload":"https://pos.toasttab.com/restaurant-pos/quick-service?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social"
-            },
-            {
-              "content_type":"text",
-              "title":"Bar / Nightclub",
-              "payload":"https://pos.toasttab.com/restaurant-pos/bar?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social"
-            },
-            {
-              "content_type":"text",
-              "title":"Pizzeria",
-              "payload":"https://pos.toasttab.com/restaurant-pos/pizza?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social"
-            },
-            {
-              "content_type":"text",
-              "title":"Cafe",
-              "payload":"https://pos.toasttab.com/restaurant-pos/cafe?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social"
-            },
-            {
-              "type": "postback",
-              "title": "Other",
-              "payload": "https://pos.toasttab.com/restaurant-pos?utm_campaign=Facebook%20Messenger%20Bot&utm_source=facebook&utm_medium=social"
-            }
-        ]
-}*/
 
 responsemap[locatedInTheUSAYes] = {
     "attachment": {
@@ -219,6 +388,22 @@ responsemap[locatedInTheUSAYes] = {
       ]  
     }
   }
+}
+//TODO
+responsemap[isYourRestaurantInTheUSA] = {
+  "text": "WHAT IS THIS",
+  "quick_replies":[
+            {
+              "content_type":"text",
+              "title":locatedInTheUSAYes,
+              "payload":locatedInTheUSAYes
+            },
+            {
+              "content_type":"text",
+              "title":locatedInTheUSANo,
+              "payload":locatedInTheUSANo
+            }
+        ]
 }
 responsemap[locatedInTheUSANo] = {
   "text": notInTheUSA
@@ -1124,5 +1309,13 @@ module.exports = {
   "thirteen": thirteen,
   "fourteen": fourteen,
   "fifteen": fifteen,
-  "sixteen": sixteen
+  "sixteen": sixteen,
+  "toastFeatures": toastFeatures,
+  "featureReply": featureReply,
+  "giftCards": giftCards,
+  "reporting": reporting,
+  "customerLoyalty": customerLoyalty,
+  "inventory": inventory,
+  "onlineOrdering": onlineOrdering,
+  "posOrdering": posOrdering
 };

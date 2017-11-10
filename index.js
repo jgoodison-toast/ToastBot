@@ -31,7 +31,9 @@ const
                     responsemap.one, responsemap.two, responsemap.three, responsemap.four,
                     responsemap.five, responsemap.six, responsemap.seven, responsemap.eight,
                     responsemap.nine, responsemap.ten, responsemap.eleven, responsemap.twelve,
-                    responsemap.thirteen, responsemap.fourteen, responsemap.fifteen, responsemap.sixteen],
+                    responsemap.thirteen, responsemap.fourteen, responsemap.fifteen, responsemap.sixteen,
+                    responsemap.toastFeatures, responsemap.featureReply, responsemap.giftCards, responsemap.reporting,
+                    responsemap.customerLoyalty, responsemap.inventory, responsemap.onlineOrdering, responsemap.posOrdering],
   app = express().use(body_parser.json()); // creates express http server
   
 
@@ -113,12 +115,13 @@ function handleMessage(sender_psid, received_message) {
   // Checks if the message contains text
   if (received_message.text) {
     if(recognizedWords.indexOf(received_message.text) === -1) {
+      console.log("wantsnt in the thing!!!")
       received_message.text = "undefined";
     }
     // Get the URL of the message attachment
     //let attachment_url = received_message.attachments[0].payload.url;
     
-    //console.log("herererererere", responsemap.responsemap[received_message.text])
+    console.log("herererererere", responsemap.responsemap[received_message.text])
     message = received_message.text;
     response = responsemap.responsemap[received_message.text];
   }
@@ -139,15 +142,7 @@ function handlePostback(sender_psid, received_postback) {
   
   // Get the payload for the postback
   let payload = received_postback.payload;
-
-  // Set the response based on the postback payload
-  if (payload === 'Yes!') {
-    response = { "text": "Thanks!" }
-  } else if (payload === 'No!') {
-    response = { "text": "Oops, try sending another image." }
-  }
-  // Send the message to acknowledge the postback
-  callSendAPI(sender_psid, response);
+  handleMessage(sender_psid, {"text": payload});
 }
 
 
