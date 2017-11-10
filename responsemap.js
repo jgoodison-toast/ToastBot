@@ -75,25 +75,30 @@ var responsemap = {};
 
 // Left
 responsemap["undefined"] = {
-  "text": introduction,
-  "quick_replies":[
+    "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type":"button",
+          "text":introduction,
+          "buttons":[
             {
-              "content_type":"text",
-              "title":learnAboutToast,
-              "payload":learnAboutToast
+                "type":"postback",
+                "title":learnAboutToast,
+                "payload":learnAboutToast
             },
             {
-              "content_type":"text",
-              "title":currentToastCustomer,
-              "payload":currentToastCustomer
-            },
+                "type":"postback",
+                "title":currentToastCustomer,
+                "payload":currentToastCustomer
+            }, 
             {
-              "content_type":"text",
-              "title":readArticles,
-              "payload":readArticles
+                "type":"postback",
+                "title":readArticles,
+                "payload":readArticles
             }
-            
-        ]
+          ]  
+        }
+      }
 }
 responsemap[reporting] = {
     "attachment": {
