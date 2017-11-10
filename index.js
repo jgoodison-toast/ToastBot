@@ -31,7 +31,7 @@ const
                     responsemap.one, responsemap.two, responsemap.three, responsemap.four,
                     responsemap.five, responsemap.six, responsemap.seven, responsemap.eight,
                     responsemap.nine, responsemap.ten, responsemap.eleven, responsemap.twelve,
-                    responsemap.thirteen, responsemap.fourteen, responsemap.fifteen, responsemap.sixteen,
+                    responsemap.thirteen, responsemap.fourteen, responsemap.fifteen, responsemap.sixteen, responsemap.seventeen,
                     responsemap.toastFeatures, responsemap.featureReply, responsemap.giftCards, responsemap.reporting,
                     responsemap.customerLoyalty, responsemap.inventory, responsemap.onlineOrdering, responsemap.posOrdering],
   app = express().use(body_parser.json()); // creates express http server

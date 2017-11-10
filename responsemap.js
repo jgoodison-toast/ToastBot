@@ -69,6 +69,7 @@ const thirteen = "13";
 const fourteen = "14";
 const fifteen = "15";
 const sixteen = "16";
+const seventeen = "17";
 const toastFeatures = "Toast features";
 var responsemap = {};
 
@@ -477,7 +478,7 @@ responsemap[four] = responsemap[eight] = responsemap[nine] = responsemap[eleven]
     }
   }
 }
-responsemap[three] = responsemap[five] = responsemap[six] = responsemap[ten] = {
+responsemap[three] = responsemap[five] = responsemap[six] = responsemap[ten] = responsemap[seventeen] =  {
     "attachment": {
     "type": "template",
     "payload": {
@@ -495,6 +496,7 @@ responsemap[three] = responsemap[five] = responsemap[six] = responsemap[ten] = {
     }
   }
 }
+
 responsemap[readArticles] = {
   "text": readArticles,
   "quick_replies":[
@@ -1329,5 +1331,6 @@ module.exports = {
   "customerLoyalty": customerLoyalty,
   "inventory": inventory,
   "onlineOrdering": onlineOrdering,
-  "posOrdering": posOrdering
+  "posOrdering": posOrdering,
+  "seventeen": seventeen
 };
