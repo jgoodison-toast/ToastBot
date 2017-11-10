@@ -78,18 +78,8 @@ responsemap["undefined"] = {
   "quick_replies":[
             {
               "content_type":"text",
-              "title":toastFeatures,
-              "payload":toastFeatures
-            },
-            {
-              "content_type":"text",
-              "title":explorePricing,
-              "payload":explorePricing
-            },
-            {
-              "content_type":"text",
-              "title":compareWithYourPOS,
-              "payload":compareWithYourPOS
+              "title":learnAboutToast,
+              "payload":learnAboutToast
             },
             {
               "content_type":"text",
@@ -100,11 +90,6 @@ responsemap["undefined"] = {
               "content_type":"text",
               "title":readArticles,
               "payload":readArticles
-            },
-            {
-              "content_type":"text",
-              "title":browseRestaurantTypes,
-              "payload":browseRestaurantTypes
             }
             
         ]
@@ -235,6 +220,33 @@ responsemap[posOrdering] = {
       ]  
     }
   }
+}
+responsemap[learnAboutToast] = {
+    "text":"What would you like to learn about?",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":explorePricing,
+              "payload":explorePricing
+            },
+            {
+              "content_type":"text",
+              "title":compareWithYourPOS,
+              "payload":compareWithYourPOS
+            },
+            {
+              "content_type":"text",
+              "title":browseRestaurantTypes,
+              "payload":browseRestaurantTypes
+            },
+            {
+              "content_type":"text",
+              "title":toastFeatures,
+              "payload":toastFeatures
+            }
+            
+        ]
+
 }
 responsemap[toastFeatures] = {
   "text":learnAboutToastReply,
