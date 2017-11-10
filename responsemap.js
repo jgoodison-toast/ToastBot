@@ -1,5 +1,5 @@
 //Questions
-const introduction =  "Hi {First Name}, let’s get started. I can answer any questions you have about Toast and send you top stores from the Toast Restaurant Management Blog every day. Tap the button below!\n\nIf you get lost at any point just type start to come back here.";
+const introduction =  "Hey, let’s get started. I can answer any questions you have about Toast and send you top stories from the Toast Restaurant Management Blog every day. Tap the button below!\n\nIf you get lost at any point just type anything and you will come back here.";
 const whatCanIHelpYouWith = "Great! What can I help you with?";
 const isYourRestaurantInTheUSA = "Is your restaurant in the USA?";
 const whatPOSDoYouUse = "What POS do you currently use in your restaurant?\n 1 - Micros\n2 - NCR - Aloha\n3 - NCR - Silver\n4 - Square\n5 - Clover\n6 - Harbortouch\n7 - Positouch\n8 - TouchBistro\n9 - Revel\n10 - Brink\n11 - Breadcrumb/Upserve\n12 - Aldelo\n13 - Digital Dining\n14 - Dinerware\n15 - None - Pencil & Paper\n16 - None - Cash Register\n17 - None - New Restaurant"
@@ -598,7 +598,7 @@ responsemap[referAFriendToToast] = {
     "type": "template",
     "payload": {
       "template_type":"button",
-      "text":"Use this form to refer your friend to Toast. If their restaurant signs up with Toast and uses our software for 30 days, you will receive $1,000.",
+      "text":"If their restaurant signs up with Toast and uses our software for 30 days, you will receive $1,000.",
       "buttons":[
         {
           "type":"web_url",
@@ -607,7 +607,7 @@ responsemap[referAFriendToToast] = {
           "webview_height_ratio": "full",
           "messenger_extensions": true,  
         }
-      ]  
+      ]
     }
   }
 }
